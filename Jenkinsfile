@@ -3,19 +3,31 @@ pipeline {                                // declarative pipeline
     parameters {
         string(name: 'version', defaultValue: '1.0.1', description: 'Which version to deploy')
     }
-    environment{ 
-        // here if you create any variable it will have global access because it is env varialble
-        version = ''
-    }
     stages {
-        // Here I need to configure downstream job and I have to pass package version for deployment
         stage('Deploy') {
             steps{
                 echo "Deploying..."
                 echo "Version from params: ${params.version}"
             }
         }
+        stage('Init') {
+            steps{
+                sh """
+                cd terraform
+                terraform init -reconfigure
+                """
+            }
+        }
+        stage('Plan') {
+            steps{
+                sh """
+                cd terraform
+                terraform plan
+                """
+            }
+        }
     }
+    
     post{
         always{
             echo 'cleaning up workspace'

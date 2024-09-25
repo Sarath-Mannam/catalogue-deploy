@@ -25,7 +25,7 @@ pipeline {                                // declarative pipeline
             steps{
                 sh """
                 cd terraform
-                terraform plan
+                terraform plan -var="app_version=${params.version}" 
                 """
             }
         }

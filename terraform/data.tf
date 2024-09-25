@@ -14,9 +14,6 @@ data "aws_ssm_parameter" "app_alb_listener_arn" {
   name = "/${var.project_name}/${var.env}/app_alb_listener_arn"
 }
 
-# data "aws_ssm_parameter" "mongodb_sg_id" {
-#   name = "/${var.project_name}/${var.env}/mongodb_sg_id"
-# }
 
 data "aws_ami" "devops_ami" {
   most_recent = true

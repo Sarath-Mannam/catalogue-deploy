@@ -15,3 +15,11 @@ variable "common_tags" {
   }
 }
 
+variable "domain_name" {
+  default = "mannamsarath.online"
+}
+
+variable "app_version" {
+  # This is just to test variable app_version value is flowing from terraform to shell and then to ansible 
+  default = "100.100.100"
+}

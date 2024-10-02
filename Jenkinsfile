@@ -47,7 +47,7 @@ pipeline {                                // declarative pipeline
             steps{
                 sh """
                 cd terraform
-                terraform apply -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -auto-approve
+                terraform apply -var-file=${params.environment}/${params.environment}.tfvars -var="app_version=${params.version}" -var="env=${params.environment}" -auto-approve
                 """
             }
         }

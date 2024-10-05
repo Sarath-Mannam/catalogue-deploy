@@ -1,0 +1,5 @@
+//bucket = "roboshopp-remote-state"
+bucket = "roboshopp-remote-statee"
+key = "catalogue-prod"
+region = "us-east-1"
+dynamodb_table = "roboshop-locking"
